@@ -41,7 +41,7 @@
   .options{
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
-   min-height: 100vh;
+   min-height: 60vh;
    background-color: #ffffff;
    z-index: 50;
    transform: translateY(-8vh);
