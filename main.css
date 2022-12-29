@@ -45,6 +45,8 @@
    background-color: #ffffff;
    z-index: 50;
    transform: translateY(-8vh);
+   display: flex;
+   justify-content: center;
   }
   .card_img{
     max-height: 50vh;
@@ -139,6 +141,9 @@
   }
   .footer p{
     color: white;
+    text-align: center;
+    padding-left: 10vw;
+    padding-right: 10vw;
 }
 .lds-roller {
   display: inline-block;
