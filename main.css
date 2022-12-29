@@ -44,9 +44,8 @@
    min-height: 60vh;
    background-color: #ffffff;
    z-index: 50;
-   transform: translateY(-8vh);
-   display: flex;
-   justify-content: center;
+   transform: translateY(-20px);
+   
   }
   .card_img{
     max-height: 50vh;
@@ -148,8 +147,10 @@
 .lds-roller {
   display: inline-block;
   position: relative;
+  padding: 50px;
   width: 80px;
   height: 80px;
+  align-self: center;
 }
 .lds-roller div {
   animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
@@ -162,7 +163,7 @@
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: #f3f3f3;
+  background: #222222;
   margin: -4px 0 0 -4px;
 }
 .lds-roller div:nth-child(1) {
