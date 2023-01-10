@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Venkat 1 Satna</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel='stylesheet' type='text/css' media='screen' href='chat.css'>
+  <link rel='stylesheet' type='text/css' media='screen' href='widget.css'>
+</head>
+<body>
+  <div class="title">
+    <div class="logo">
+      <img src="/Assets/Logo.png">
+    </div>
+    <div class="Heading">
+      <h3>
+        Chat Room
+      </h3>
+
+    </div>
+  </div>
+
+  <div class="pagearea" id="pagearea">
+    <div class="logbox">
+      
+      <label for="class">Choose your classroom</label>
+      <select name="class" class="cselect">
+        <option class="cselect" value="11A1">Class 11-A1</option>
+        <option class="cselect" value="11A2">Class 11-A2</option>
+      </select>
+      <label >Enter Your Roll number</label>
+      <input class="cedit" id="roll">
+      <label >Enter Your Password</label>
+      <input class="cedit" id="password">
+      
+
+    </div>
+
+  </div>
+</body>
+
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import {
+    initializeApp
+  } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+
+
+</script>
+<script src='chat.js'></script>
+</html>
