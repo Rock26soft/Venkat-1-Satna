@@ -8,8 +8,8 @@
   <link rel='stylesheet' type='text/css' media='screen' href='chat.css'>
   <link rel='stylesheet' type='text/css' media='screen' href='widget.css'>
 </head>
-<body>
-  <div class="title">
+<body onload="oncreate()">
+  <div class="title" id="title">
     <div class="logo">
       <img src="/Assets/Logo.png">
     </div>
@@ -22,37 +22,60 @@
   </div>
 
   <div class="pagearea" id="pagearea">
-    <div class="logbox">
-      
+    <div class="logbox" id="logbox">
+
+      <label>Enter Your Roll number</label>
+      <input class="cedit" id="roll" onfocus="hidetitle()">
+      <label>Enter Your Password</label>
+      <input class="cedit" id="password" onfocus="showtitle()">
       <label for="class">Choose your classroom</label>
-      <select name="class" class="cselect">
+      <select name="class" id="cselect" class="cselect" onfocus="showtitle()">
         <option class="cselect" value="11A1">Class 11-A1</option>
         <option class="cselect" value="11A2">Class 11-A2</option>
       </select>
-      <label >Enter Your Roll number</label>
-      <input class="cedit" id="roll">
-      <label >Enter Your Password</label>
-      <input class="cedit" id="password">
-      
+      <btn onclick="login()">
+        Submit
+      </btn>
+      <div class="lds-roller" id="ldr">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+    <div id="chatbox" class="logbox">
+      <div class="chats" id="chats">
 
+      </div>
+      <div class="inptcht" id="inptcht">
+        <textarea class="ibox" name="chtmsg"></textarea>
+        <button class="sbtn"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAACXBIWXMAAAsTAAALEwEAmpwYAAAC90lEQVR4nO3aTagVZRwH4DdT0ZALJpUSqQmFGC0rTcGiBMWraze6KBFC6LYLciMEuTZcFGVXWoTdFi3KVQslFAS/Nlqk6MIKbplUJJQf9cjLnQu3o3POnJk5c84c5tmedz5+c8779Z8TQqPRaDQaPYN5GMVBTOJHbArDBCPYhs/xl3tdDXWHR7ATR/CP9iZDHWEpduEr3JLdx6EusAJjOI7/5LM5DDI8g724oLjYp+eFQYIHsQ77k1G1TIfDAE0fW/AJfisY6nYciVM+29bPkA8lIT/Fn8oRH9a+JHSrOHqPVB1yEXYkI2un6aNb57Aev6Z8/nWV08cYvkl58mX4DA/jVJs2rw/69JFFfIBvJ9eM/T/Nnbg46dX08Z1qXMMrybXf6tD26KBPH52cxfLkPtbiZof2bxYNuwW/6I/x6cUDnshwH7FLLSsa+GfVi+vl3S1zd7tBatrpQmEjXFGtONW8HGaIm4CMx74TisIG3FCNk3i85fq7uzh+VeHAEVbie70VV2Hzwwx4McMgNe2H0IPqwpe9nF9brreky/HjvVIDR3gg3hz+LSlsDLQmtMCcZCHTjedCr2Azfi8Y9kT8FlPO/1GX5/opfhk9CxzhKZzPGfZDzA33gTdynG9/qAIW4Isubizumna2Od+anDurlyoJ3NKv46K9089udUiBxUmbPPvi2aFq2IjrKTcVB6DFbY6Ng9S38jlYbdJ798OnsvbXGcd9IL/R0E+m1r3jSV98LUP7WBWpf2USSzO0eaFg+Wci1AUeK2Fv3b/KZDeSQepYwbDVVybzwgHFHQl1gO3KkbqAGRimpq2/SwgbFzmPhjrAoRICHwt1gfk4UzDwWKgTLEtqzXk9GeoGr2bYcPSmMtkvscqYI/CeUFemtpYTXQYupzLZL0kRIWvl5GIYBngaf2QIvC8MC2zNUA19PgwTvNvXymTVMCv+XSEl8PthGGEhLt0n8P9esA0VPNvyAm+yL5XJKiVvLS8nfXew/0LYaDQajVCuu2F7jB24EdxQAAAAAElFTkSuQmCC">
+        </div>
+      </div>
     </div>
 
-  </div>
-</body>
-
-<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
-
-<script type="module">
-  // Import the functions you need from the SDKs you need
-  import {
-    initializeApp
-  } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-  // Your web app's Firebase configuration
 
 
-</script>
-<script src='chat.js'></script>
+
+  </body>
+
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import {
+      initializeApp
+    } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+
+
+  </script>
+  <script src='chat.js'></script>
 </html>

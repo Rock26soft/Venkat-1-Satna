@@ -1,0 +1,53 @@
+.chats {
+  width: 100%;
+  display: flex;
+  flex-grow: 1;
+  
+}
+.inptcht {
+  width: 100%;
+  backdrop-filter: blur(10px);
+  background: #ffffff42;
+  display: flex;
+  padding: 10px;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+}
+.ibox {
+  
+  min-height: 25px;
+  flex-direction: row;
+  flex-grow: 1;
+  margin-left: 20px;
+  background-color: #ffffff;
+  color: #464646;
+  border-radius: 30px;
+  border: none;
+  padding: 10px;
+  font-size: 14px;
+  vertical-align: center;
+}
+.sbtn {
+    height: 50px;
+    width: 50px;
+    margin-left: 10px;
+    margin-right: 10px;
+    background: #000424;
+    border-radius: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    border: none;
+}
+.sbtn img{
+  height: 20px;
+  width: 20px;
+  transform: translate(-2px,2px);
+}
