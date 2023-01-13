@@ -81,7 +81,7 @@ var textarea = document.querySelector('textarea');
 
 textarea.addEventListener('input', function() {
   textarea.style.height = 'auto'
-  textarea.style.height = (textarea.scrollHeight - 50)+ 'px';
+  textarea.style.height = (textarea.scrollHeight - 60)+ 'px';
 });
 function addtitle(classname) {
   document.getElementById("roomname").innerHTML = "Chat Room Class - " + classname;
@@ -89,6 +89,7 @@ function addtitle(classname) {
 
 function startchat(classname) {
   const messagesRef = firebase.database().ref(classname);
+  textarea.style.height = (textarea.scrollHeight - 44)+ 'px';
 
   // Listen for new messages being added to the database
   messagesRef.on('child_added',
@@ -111,12 +112,12 @@ function startchat(classname) {
       msgcon.className= 'msgcon';
       msg.appendChild(msgn);
       }
-      
+      msgn.style.color= stringToColour(message.Name);
       
       
       msgcon.appendChild(msg);
       msgList.appendChild(msgcon);
-     
+     Stb();
     });
 }
 // Send a new message to the database
@@ -142,3 +143,47 @@ function logout(){
   localStorage.setItem("name", "");
   window.location.reload();
 }
+function Stb(){
+  if(inViewport(document.querySelector('#chats > div:last-of-type')) == false){
+    document.getElementById('nmsg').style.display = "block";
+    
+  }else{
+   msgList.scrollTop = msgList.scrollHeight;
+   document.getElementById('nmsg').style.display = "none";
+   
+  }
+  
+}
+function inViewport (element) {
+  if (!element) return false;
+  if (1 !== element.nodeType) return false;
+
+  var html = document.documentElement;
+  var rect = element.getBoundingClientRect();
+
+  return !!rect &&
+    rect.bottom >= 0 &&
+    rect.right >= 0 && 
+    rect.left <= html.clientWidth &&
+    rect.top <= html.clientHeight;
+}
+function Stbnmsg(){
+  
+   msgList.scrollTop = msgList.scrollHeight;
+   document.getElementById('nmsg').style.display = "none";
+   
+  }
+  
+  var stringToColour = function(str) {
+    var hash = 0;
+    for (var i = 0; i < str.length; i++) {
+        hash = str.charCodeAt(i) + ((hash << 5) - hash);
+    }
+    var colour = '#';
+    for (var i = 0; i < 3; i++) {
+        var value = (hash >> (i * 8)) & 0xFF;
+        colour += ('00' + value.toString(16)).substr(-2);
+    }
+    return colour;
+}
+

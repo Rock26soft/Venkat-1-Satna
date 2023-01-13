@@ -19,7 +19,7 @@
       </h3>
 
     </div>
-      <button class="logot" id="logot" onclick="logout()">Log Out</button>
+    <button class="logot" id="logot" onclick="logout()">Log Out</button>
   </div>
 
   <div class="pagearea" id="pagearea">
@@ -50,21 +50,24 @@
     </div>
     <div id="chatbox" class="logbox">
       <div class="chats" id="chats">
-        <p class="chatsp">Be respectful while chating and dont fight with each other.
-        Enjoy and let others Enjoy</p>
+        <p class="chatsp">
+          Be respectful while chating and dont fight with each other.
+          Enjoy and let others Enjoy
+        </p>
+        <div id="nmsg" onclick="Stbnmsg()">
+          New Message ↓
+        </div>
 
       </div>
       <div class="inptcht" id="inptcht">
         <div class="ibox">
           <textarea name="chtmsg" id="chtmsg"></textarea>
 
-        <button class="sbtn" onclick="sendMessage()"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAACXBIWXMAAAsTAAALEwEAmpwYAAAEwklEQVR4nO2dX6hlUxzHD4MiiSR/k7wIhaKUlCe8SChv/sS7PCAv6vBm4qhrn7O+39++3W5Rk/ajEY0XKSkhiQc0RYxJJsnMyEwz42h17+XMcfe565y9/u19ft9aj/e31v599/6272etfW+vp1KpVCqVSqVSqVSqxiqK4goAT5Nca15N5aTBYHCuiDxMci/JEyTHIvKM20+rFlK/3z9TRO4EIAAO26ZPjFMArlyssmqmyrK8EcCLJL+favq/A8C+2VVUi+b6Z3VNnxqPzDeDyinXXQaAo8Ph8Pz/V1Q1zXXX8cbOM6nmzvU5noC7T6+u8pXrLs3/uaqqXdvPqOotmutzjFe0zWFy3WmMRqObpudfWpUec90xfr7uLbuKALk+hwHP9pZRg/C57jJOlWV5VW9Z1I+Y6453/3KghzJyrs8xuoseijS5bqPsm6VFD4OEuQ7gN/uUATi+VOihP5HrJI+kiBIA3xpj7gXw69Kgh/K/XP8hRdMnGvmefZMh+VXn0cNWrgP4PGXTJxq5IiJnA3i7s+ghk/f18dQ4JiKP2/WR3N059JBDrrP+rj8oIrfbddrXyE6hh1xynfXN+0JErrZrNcbcCuDP1qOH3HKd9Y2rROQ8u2YRuZzkgdaih0xzfVzT+L8BvDwej8/YWjvJTxas936ypuec66wfRwA8uHUN1gSSexatZ4x5NHrjc8911t/5P9mcn7wWki80qBcPPbQl11k/PlpdXb108ppE5AGb4Q1qxkMPAF7PoInjBe/U1aqqzpm8Hvve3jQ2ReSeaAbYrGybCQBOknx++lqKorgYwP6GteOjh5aZ8Icx5r7pa7CYgeQHHuqnQQ8tMeG70Wh0/Xbr54Yaz5EUPeRsAoB96+vrF2637s3NHB9zpEcPm+/PReqG8/TGSL/fP2u79VpW7+sXxGzQQy4mADhujHmybp3GmGsBHPI0Xx7oIRcTABwSkbvq1reysnKBjQyPc6ZDDxma8CWAa2ahEgDv+JwzCXrI1IS99u6etSaSr3l+2vI+9RDDBGySTHt3z1oLgMcCzP1mL3eFNAHAXy4Hn0TkDrvF6Hv+qOghQxMOkLxtp7nt7haAXwKY365TDz5NAPDxcDi8bKc57cYKgE9DPH2tOvXg2YQ9trEucwF4K1Dz8z/14NsE1JDMOpF8KVTzs0APMU0AcNgYc79rfZIP2bejgAbkgR5imABgP4AbXOuWZXmLfT8P1fzs0ENIEwB8uLa2dolrPbvFSPLHgM3PEz2EMAGA2M0S1zp2i9EaFrj5+aIHjyacIPnUvDXsPm/o5mePHjyYsHsWyayT/QNIoZvfGvQQW2bjo4mTMQxoDXqIJWPMdQB+j3T3H2wVeggtY8xFdrM9RvNbix5CqaqqXQDejdj89qKHEGLk3bbWowefIvlEzOZ3Bj34kGwcfXf9RtfX6A56aCou8LGch9Et9NC20xami+ihLSagy+ihDSZA0UNaExQ9pD3youghpQkAXnVagKoXxAQAN2tv0507UvSQ0gRFD2lNUPSQ2ARFDylNUPSQ9gTeUUUPCU2Aooe0Joieekj3MTkUPaQ1AYoe0poARQ/pTICih+QmPJdgCarxpgn6zzVVKpVKpVKpVCpVLwP9A5zozr/J+eOvAAAAAElFTkSuQmCC">
+          <button class="sbtn" onclick="sendMessage()"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAACXBIWXMAAAsTAAALEwEAmpwYAAAEwklEQVR4nO2dX6hlUxzHD4MiiSR/k7wIhaKUlCe8SChv/sS7PCAv6vBm4qhrn7O+39++3W5Rk/ajEY0XKSkhiQc0RYxJJsnMyEwz42h17+XMcfe565y9/u19ft9aj/e31v599/6272etfW+vp1KpVCqVSqVSqVSqxiqK4goAT5Nca15N5aTBYHCuiDxMci/JEyTHIvKM20+rFlK/3z9TRO4EIAAO26ZPjFMArlyssmqmyrK8EcCLJL+favq/A8C+2VVUi+b6Z3VNnxqPzDeDyinXXQaAo8Ph8Pz/V1Q1zXXX8cbOM6nmzvU5noC7T6+u8pXrLs3/uaqqXdvPqOotmutzjFe0zWFy3WmMRqObpudfWpUec90xfr7uLbuKALk+hwHP9pZRg/C57jJOlWV5VW9Z1I+Y6453/3KghzJyrs8xuoseijS5bqPsm6VFD4OEuQ7gN/uUATi+VOihP5HrJI+kiBIA3xpj7gXw69Kgh/K/XP8hRdMnGvmefZMh+VXn0cNWrgP4PGXTJxq5IiJnA3i7s+ghk/f18dQ4JiKP2/WR3N059JBDrrP+rj8oIrfbddrXyE6hh1xynfXN+0JErrZrNcbcCuDP1qOH3HKd9Y2rROQ8u2YRuZzkgdaih0xzfVzT+L8BvDwej8/YWjvJTxas936ypuec66wfRwA8uHUN1gSSexatZ4x5NHrjc8911t/5P9mcn7wWki80qBcPPbQl11k/PlpdXb108ppE5AGb4Q1qxkMPAF7PoInjBe/U1aqqzpm8Hvve3jQ2ReSeaAbYrGybCQBOknx++lqKorgYwP6GteOjh5aZ8Icx5r7pa7CYgeQHHuqnQQ8tMeG70Wh0/Xbr54Yaz5EUPeRsAoB96+vrF2637s3NHB9zpEcPm+/PReqG8/TGSL/fP2u79VpW7+sXxGzQQy4mADhujHmybp3GmGsBHPI0Xx7oIRcTABwSkbvq1reysnKBjQyPc6ZDDxma8CWAa2ahEgDv+JwzCXrI1IS99u6etSaSr3l+2vI+9RDDBGySTHt3z1oLgMcCzP1mL3eFNAHAXy4Hn0TkDrvF6Hv+qOghQxMOkLxtp7nt7haAXwKY365TDz5NAPDxcDi8bKc57cYKgE9DPH2tOvXg2YQ9trEucwF4K1Dz8z/14NsE1JDMOpF8KVTzs0APMU0AcNgYc79rfZIP2bejgAbkgR5imABgP4AbXOuWZXmLfT8P1fzs0ENIEwB8uLa2dolrPbvFSPLHgM3PEz2EMAGA2M0S1zp2i9EaFrj5+aIHjyacIPnUvDXsPm/o5mePHjyYsHsWyayT/QNIoZvfGvQQW2bjo4mTMQxoDXqIJWPMdQB+j3T3H2wVeggtY8xFdrM9RvNbix5CqaqqXQDejdj89qKHEGLk3bbWowefIvlEzOZ3Bj34kGwcfXf9RtfX6A56aCou8LGch9Et9NC20xami+ihLSagy+ihDSZA0UNaExQ9pD3youghpQkAXnVagKoXxAQAN2tv0507UvSQ0gRFD2lNUPSQ2ARFDylNUPSQ9gTeUUUPCU2Aooe0Joieekj3MTkUPaQ1AYoe0poARQ/pTICih+QmPJdgCarxpgn6zzVVKpVKpVKpVCpVLwP9A5zozr/J+eOvAAAAAElFTkSuQmCC">
+          
         </div>
-                </div>
       </div>
     </div>
-
-
 
 
   </body>

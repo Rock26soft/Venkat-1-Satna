@@ -20,20 +20,22 @@
     padding: 10px;
     display: flex;
     flex-direction: column-reverse;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .msgsnt{
     height: auto;
     max-width: 60vw;
     min-width: 10vw;
-    background: linear-gradient(-95deg, #ffd668,#de82ff, #03eaff70, #00d876);
+    background: linear-gradient(135deg, #a2f4f1, #f3f9a7, #29ffc6);
    	background-size: 300% 300%;
-	  animation: gradient 22s ease infinite;
+	  animation: gradient 12s ease infinite;
     margin: 10px;
     border-radius: 20px;
     border-bottom-right-radius: 0px;
     padding: 10px;
     display: flex;
     flex-direction: column-reverse;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     
 }
 .msg p{
@@ -66,10 +68,11 @@
   align-items: center;
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 .ibox {
   
-    min-height: 5px;
+   
     display: flex;
     flex-direction: row;
     flex-grow: 1;
@@ -119,4 +122,17 @@
   font-size: 15px;
   color: #7b7b7b;
   margin: 15px 50px 15px;
+}
+#nmsg{
+  height: auto;
+  width: auto;
+  background: #1aff577d;
+  position: fixed;
+  border-radius: 20px;
+  border:1px solid #271b69 ;
+  padding: 10px;
+  top: 100px;
+  right: 10px;
+  color: #ffffff;
+  display:none;
 }
