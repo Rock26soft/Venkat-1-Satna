@@ -14,11 +14,12 @@
       <img src="/Assets/Logo.png">
     </div>
     <div class="Heading">
-      <h3>
+      <h3 id="roomname">
         Chat Room
       </h3>
 
     </div>
+      <button class="logot" id="logot" onclick="logout()">Log Out</button>
   </div>
 
   <div class="pagearea" id="pagearea">
@@ -49,12 +50,17 @@
     </div>
     <div id="chatbox" class="logbox">
       <div class="chats" id="chats">
+        <p class="chatsp">Be respectful while chating and dont fight with each other.
+        Enjoy and let others Enjoy</p>
 
       </div>
       <div class="inptcht" id="inptcht">
-        <textarea class="ibox" name="chtmsg"></textarea>
-        <button class="sbtn"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAACXBIWXMAAAsTAAALEwEAmpwYAAAC90lEQVR4nO3aTagVZRwH4DdT0ZALJpUSqQmFGC0rTcGiBMWraze6KBFC6LYLciMEuTZcFGVXWoTdFi3KVQslFAS/Nlqk6MIKbplUJJQf9cjLnQu3o3POnJk5c84c5tmedz5+c8779Z8TQqPRaDQaPYN5GMVBTOJHbArDBCPYhs/xl3tdDXWHR7ATR/CP9iZDHWEpduEr3JLdx6EusAJjOI7/5LM5DDI8g724oLjYp+eFQYIHsQ77k1G1TIfDAE0fW/AJfisY6nYciVM+29bPkA8lIT/Fn8oRH9a+JHSrOHqPVB1yEXYkI2un6aNb57Aev6Z8/nWV08cYvkl58mX4DA/jVJs2rw/69JFFfIBvJ9eM/T/Nnbg46dX08Z1qXMMrybXf6tD26KBPH52cxfLkPtbiZof2bxYNuwW/6I/x6cUDnshwH7FLLSsa+GfVi+vl3S1zd7tBatrpQmEjXFGtONW8HGaIm4CMx74TisIG3FCNk3i85fq7uzh+VeHAEVbie70VV2Hzwwx4McMgNe2H0IPqwpe9nF9brreky/HjvVIDR3gg3hz+LSlsDLQmtMCcZCHTjedCr2Azfi8Y9kT8FlPO/1GX5/opfhk9CxzhKZzPGfZDzA33gTdynG9/qAIW4Isubizumna2Od+anDurlyoJ3NKv46K9089udUiBxUmbPPvi2aFq2IjrKTcVB6DFbY6Ng9S38jlYbdJ798OnsvbXGcd9IL/R0E+m1r3jSV98LUP7WBWpf2USSzO0eaFg+Wci1AUeK2Fv3b/KZDeSQepYwbDVVybzwgHFHQl1gO3KkbqAGRimpq2/SwgbFzmPhjrAoRICHwt1gfk4UzDwWKgTLEtqzXk9GeoGr2bYcPSmMtkvscqYI/CeUFemtpYTXQYupzLZL0kRIWvl5GIYBngaf2QIvC8MC2zNUA19PgwTvNvXymTVMCv+XSEl8PthGGEhLt0n8P9esA0VPNvyAm+yL5XJKiVvLS8nfXew/0LYaDQajVCuu2F7jB24EdxQAAAAAElFTkSuQmCC">
+        <div class="ibox">
+          <textarea name="chtmsg" id="chtmsg"></textarea>
+
+        <button class="sbtn" onclick="sendMessage()"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAACXBIWXMAAAsTAAALEwEAmpwYAAAEwklEQVR4nO2dX6hlUxzHD4MiiSR/k7wIhaKUlCe8SChv/sS7PCAv6vBm4qhrn7O+39++3W5Rk/ajEY0XKSkhiQc0RYxJJsnMyEwz42h17+XMcfe565y9/u19ft9aj/e31v599/6272etfW+vp1KpVCqVSqVSqVSqxiqK4goAT5Nca15N5aTBYHCuiDxMci/JEyTHIvKM20+rFlK/3z9TRO4EIAAO26ZPjFMArlyssmqmyrK8EcCLJL+favq/A8C+2VVUi+b6Z3VNnxqPzDeDyinXXQaAo8Ph8Pz/V1Q1zXXX8cbOM6nmzvU5noC7T6+u8pXrLs3/uaqqXdvPqOotmutzjFe0zWFy3WmMRqObpudfWpUec90xfr7uLbuKALk+hwHP9pZRg/C57jJOlWV5VW9Z1I+Y6453/3KghzJyrs8xuoseijS5bqPsm6VFD4OEuQ7gN/uUATi+VOihP5HrJI+kiBIA3xpj7gXw69Kgh/K/XP8hRdMnGvmefZMh+VXn0cNWrgP4PGXTJxq5IiJnA3i7s+ghk/f18dQ4JiKP2/WR3N059JBDrrP+rj8oIrfbddrXyE6hh1xynfXN+0JErrZrNcbcCuDP1qOH3HKd9Y2rROQ8u2YRuZzkgdaih0xzfVzT+L8BvDwej8/YWjvJTxas936ypuec66wfRwA8uHUN1gSSexatZ4x5NHrjc8911t/5P9mcn7wWki80qBcPPbQl11k/PlpdXb108ppE5AGb4Q1qxkMPAF7PoInjBe/U1aqqzpm8Hvve3jQ2ReSeaAbYrGybCQBOknx++lqKorgYwP6GteOjh5aZ8Icx5r7pa7CYgeQHHuqnQQ8tMeG70Wh0/Xbr54Yaz5EUPeRsAoB96+vrF2637s3NHB9zpEcPm+/PReqG8/TGSL/fP2u79VpW7+sXxGzQQy4mADhujHmybp3GmGsBHPI0Xx7oIRcTABwSkbvq1reysnKBjQyPc6ZDDxma8CWAa2ahEgDv+JwzCXrI1IS99u6etSaSr3l+2vI+9RDDBGySTHt3z1oLgMcCzP1mL3eFNAHAXy4Hn0TkDrvF6Hv+qOghQxMOkLxtp7nt7haAXwKY365TDz5NAPDxcDi8bKc57cYKgE9DPH2tOvXg2YQ9trEucwF4K1Dz8z/14NsE1JDMOpF8KVTzs0APMU0AcNgYc79rfZIP2bejgAbkgR5imABgP4AbXOuWZXmLfT8P1fzs0ENIEwB8uLa2dolrPbvFSPLHgM3PEz2EMAGA2M0S1zp2i9EaFrj5+aIHjyacIPnUvDXsPm/o5mePHjyYsHsWyayT/QNIoZvfGvQQW2bjo4mTMQxoDXqIJWPMdQB+j3T3H2wVeggtY8xFdrM9RvNbix5CqaqqXQDejdj89qKHEGLk3bbWowefIvlEzOZ3Bj34kGwcfXf9RtfX6A56aCou8LGch9Et9NC20xami+ihLSagy+ihDSZA0UNaExQ9pD3youghpQkAXnVagKoXxAQAN2tv0507UvSQ0gRFD2lNUPSQ2ARFDylNUPSQ9gTeUUUPCU2Aooe0Joieekj3MTkUPaQ1AYoe0poARQ/pTICih+QmPJdgCarxpgn6zzVVKpVKpVKpVCpVLwP9A5zozr/J+eOvAAAAAElFTkSuQmCC">
         </div>
+                </div>
       </div>
     </div>
 
@@ -65,6 +71,7 @@
 
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
   <script type="module">
     // Import the functions you need from the SDKs you need
     import {

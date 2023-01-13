@@ -1,8 +1,57 @@
 .chats {
+    width: 100%;
+    flex-grow: 1;
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-y: scroll;
+}
+.msg{
+      height: auto;
+    max-width: 60vw;
+    min-width: 10vw;
+    background: #dddff3;
+    margin: 10px;
+    border-radius: 20px;
+    border-bottom-left-radius: 0px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column-reverse;
+}
+.msgsnt{
+    height: auto;
+    max-width: 60vw;
+    min-width: 10vw;
+    background: linear-gradient(-95deg, #ffd668,#de82ff, #03eaff70, #00d876);
+   	background-size: 300% 300%;
+	  animation: gradient 22s ease infinite;
+    margin: 10px;
+    border-radius: 20px;
+    border-bottom-right-radius: 0px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column-reverse;
+    
+}
+.msg p{
+  color: #727272;
+  font-size: 10px;
+  margin-bottom: 8px;
+  padding: 0px;
+  text-align: left;
+}
+.msgcon{
   width: 100%;
   display: flex;
-  flex-grow: 1;
-  
+  flex-direction: row;
+}
+.msgconsnt {
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
 }
 .inptcht {
   width: 100%;
@@ -20,24 +69,38 @@
 }
 .ibox {
   
-  min-height: 25px;
-  flex-direction: row;
-  flex-grow: 1;
-  margin-left: 20px;
-  background-color: #ffffff;
-  color: #464646;
-  border-radius: 30px;
+    min-height: 5px;
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    margin-left: 20px;
+    margin-right: 20px;
+    background-color: #ffffff;
+    color: #464646;
+    border-radius: 30px;
+    border: none;
+    align-items: center;
+    align-content: center;
+    justify-content: space-around;
+}
+.ibox textarea{
+  height: 36px;
+  flex-grow: 1 ;
   border: none;
-  padding: 10px;
-  font-size: 14px;
-  vertical-align: center;
+  font-size: 16px;
+  background: #00000000;
+  line-height: 25px;
+  border-radius: 30px;
+  padding: 18px;
+  resize: none;
+  
 }
 .sbtn {
     height: 50px;
     width: 50px;
     margin-left: 10px;
     margin-right: 10px;
-    background: #000424;
+    background: #00000000;
     border-radius: 100%;
     display: flex;
     flex-wrap: nowrap;
@@ -50,4 +113,10 @@
   height: 20px;
   width: 20px;
   transform: translate(-2px,2px);
+}
+
+.chatsp {
+  font-size: 15px;
+  color: #7b7b7b;
+  margin: 15px 50px 15px;
 }

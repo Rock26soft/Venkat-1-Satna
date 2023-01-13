@@ -12,6 +12,17 @@
   touch-action: pan-x pan-y;
   height: 100% 
 }
+.logot{
+  margin-left: 20px;
+  height: 25px;
+  width: 60px;
+  display: none;
+  background: #395edb;
+  color: white;
+  border: 0px;
+  border-radius: 10px;
+  text-align: center;
+}
 .title {
   display: flex;
   height: 60px;
@@ -19,8 +30,8 @@
   align-content: center;
   justify-content: center;
   align-items: center;
-  border-bottom-left-radius: 40px;
-  border-bottom-right-radius: 40px;
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
   background-color: #f3f8fd;
 }
 .logo img {
