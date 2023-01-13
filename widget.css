@@ -12,8 +12,10 @@
 .msg{
       height: auto;
     max-width: 60vw;
-    min-width: 10vw;
-    background: #dddff3;
+    min-width: 20vw;
+    background: linear-gradient(135deg,#ffffff, #e8e8e8,#e4ecff);
+   	background-size: 300% 300%;
+	  animation: gradient 5s ease infinite;
     margin: 10px;
     border-radius: 20px;
     border-bottom-left-radius: 0px;
@@ -25,7 +27,7 @@
 .msgsnt{
     height: auto;
     max-width: 60vw;
-    min-width: 10vw;
+    min-width: 20vw;
     background: linear-gradient(135deg, #a2f4f1, #f3f9a7, #29ffc6);
    	background-size: 300% 300%;
 	  animation: gradient 12s ease infinite;
@@ -44,6 +46,13 @@
   margin-bottom: 8px;
   padding: 0px;
   text-align: left;
+}
+.msg l , .msgsnt l{
+  color: #727272;
+  font-size: 10px;
+  margin-top: 8px;
+  padding: 0px;
+  text-align: right;
 }
 .msgcon{
   width: 100%;
@@ -96,7 +105,7 @@
   border-radius: 30px;
   padding: 18px;
   resize: none;
-  
+  overflow: hidden;
 }
 .sbtn {
     height: 50px;

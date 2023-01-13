@@ -81,7 +81,8 @@ var textarea = document.querySelector('textarea');
 
 textarea.addEventListener('input', function() {
   textarea.style.height = 'auto'
-  textarea.style.height = (textarea.scrollHeight - 60)+ 'px';
+  textarea.style.height = (textarea.scrollHeight - 65)+ 'px';
+  Stbnmsg();
 });
 function addtitle(classname) {
   document.getElementById("roomname").innerHTML = "Chat Room Class - " + classname;
@@ -89,70 +90,82 @@ function addtitle(classname) {
 
 function startchat(classname) {
   const messagesRef = firebase.database().ref(classname);
-  textarea.style.height = (textarea.scrollHeight - 44)+ 'px';
+  textarea.style.height = (textarea.scrollHeight - 50)+ 'px';
 
   // Listen for new messages being added to the database
-  messagesRef.on('child_added',
+  messagesRef.limitToLast(30).on('child_added',
     (data) => {
       // Get the message from the data
       const message = data.val();
       console.log(message)
       // Append the message to the list in the UI
-      var msg =  document.createElement('div');
-      var msgn =  document.createElement('p');
-      var msgcon =  document.createElement('div');
-      
-      msg.innerHTML=message.Text;
-      msgn.innerHTML=message.Name;
-      if(message.Sroll == localStorage.getItem("roll")){
-      msg.className= 'msgsnt';
-      msgcon.className= 'msgconsnt';
-      }else{
-      msg.className= 'msg';
-      msgcon.className= 'msgcon';
-      msg.appendChild(msgn);
+      var msg = document.createElement('div');
+      var msgn = document.createElement('p');
+      var msgcon = document.createElement('div');
+      var msgt = document.createElement('l');
+
+      msg.innerHTML = message.Text;
+      msgn.innerHTML = message.Name;
+      if (message.Sroll == localStorage.getItem("roll")) {
+        msg.className = 'msgsnt';
+        msgcon.className = 'msgconsnt';
+      } else {
+        msg.className = 'msg';
+        msgcon.className = 'msgcon';
+        msg.appendChild(msgn);
       }
-      msgn.style.color= stringToColour(message.Name);
-      
-      
+      msgn.style.color = stringToColour(message.Name);
+
+
       msgcon.appendChild(msg);
+      
+      timestamp = {
+        nanoseconds: 0,
+        seconds: message.Time
+      }
+
+      
+
+      msgt.innerHTML = formatAMPM(new Date(timestamp.seconds));
+      msg.prepend(msgt);
       msgList.appendChild(msgcon);
-     Stb();
+
+      Stb();
     });
 }
 // Send a new message to the database
 function sendMessage() {
   const messageInput = document.querySelector('#chtmsg');
   const message = messageInput.value;
-  if(message.trim() !== ""){
-  const messagesRef = firebase.database().ref(localStorage.getItem("class"));
-  messagesRef.push({
-    Text: message,
-    Time: firebase.database.ServerValue.TIMESTAMP,
-    Name: localStorage.getItem("name"),
-    Sroll: localStorage.getItem("roll"),
-  });
-  messageInput.value = '';
-    
+  if (message.trim() !== "") {
+    const messagesRef = firebase.database().ref(localStorage.getItem("class"));
+    messagesRef.push({
+      Text: message,
+      Time: firebase.database.ServerValue.TIMESTAMP,
+      Name: localStorage.getItem("name"),
+      Sroll: localStorage.getItem("roll"),
+    });
+    messageInput.value = '';
+
   }
 }
-function logout(){
-  localStorage.setItem("roll", "" );
+function logout() {
+  localStorage.setItem("roll", "");
   localStorage.setItem("pass", "");
   localStorage.setItem("class", "");
   localStorage.setItem("name", "");
   window.location.reload();
 }
-function Stb(){
-  if(inViewport(document.querySelector('#chats > div:last-of-type')) == false){
+function Stb() {
+  if (inViewport(document.querySelector('#chats > div:last-of-type')) == false) {
     document.getElementById('nmsg').style.display = "block";
-    
-  }else{
-   msgList.scrollTop = msgList.scrollHeight;
-   document.getElementById('nmsg').style.display = "none";
-   
+
+  } else {
+    msgList.scrollTop = msgList.scrollHeight;
+    document.getElementById('nmsg').style.display = "none";
+
   }
-  
+
 }
 function inViewport (element) {
   if (!element) return false;
@@ -162,28 +175,39 @@ function inViewport (element) {
   var rect = element.getBoundingClientRect();
 
   return !!rect &&
-    rect.bottom >= 0 &&
-    rect.right >= 0 && 
-    rect.left <= html.clientWidth &&
-    rect.top <= html.clientHeight;
+  rect.bottom >= 0 &&
+  rect.right >= 0 &&
+  rect.left <= html.clientWidth &&
+  rect.top <= html.clientHeight;
 }
-function Stbnmsg(){
-  
-   msgList.scrollTop = msgList.scrollHeight;
-   document.getElementById('nmsg').style.display = "none";
-   
-  }
-  
-  var stringToColour = function(str) {
-    var hash = 0;
-    for (var i = 0; i < str.length; i++) {
-        hash = str.charCodeAt(i) + ((hash << 5) - hash);
-    }
-    var colour = '#';
-    for (var i = 0; i < 3; i++) {
-        var value = (hash >> (i * 8)) & 0xFF;
-        colour += ('00' + value.toString(16)).substr(-2);
-    }
-    return colour;
+function Stbnmsg() {
+
+  msgList.scrollTop = msgList.scrollHeight;
+  document.getElementById('nmsg').style.display = "none";
+
 }
 
+var stringToColour = function(str) {
+  var hash = 0;
+  for (var i = 0; i < str.length; i++) {
+    hash = str.charCodeAt(i) + ((hash << 5) - hash);
+  }
+  var colour = '#';
+  for (var i = 0; i < 3; i++) {
+    var value = (hash >> (i * 8)) & 0xFF;
+    colour += ('00' + value.toString(16)).substr(-2);
+  }
+  return colour;
+}
+
+
+function formatAMPM(date) {
+  var hours = date.getHours();
+  var minutes = date.getMinutes();
+  var ampm = hours >= 12 ? 'pm' : 'am';
+  hours = hours % 12;
+  hours = hours ? hours : 12; // the hour '0' should be '12'
+  minutes = minutes < 10 ? '0'+minutes : minutes;
+  var strTime = hours + ':' + minutes + ' ' + ampm;
+  return strTime;
+}
