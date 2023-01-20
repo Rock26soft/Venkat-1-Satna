@@ -47,6 +47,7 @@ function login () {
             loader.style.display = "none"
             addtitle(doc.data().class)
             startchat(doc.data().class)
+            Droid.logged();
 
           } else {
             alert("Class not registered with this account")}
@@ -97,7 +98,7 @@ function startchat(classname) {
     (data) => {
       // Get the message from the data
       const message = data.val();
-      console.log(message)
+      
       // Append the message to the list in the UI
       var msg = document.createElement('div');
       var msgn = document.createElement('p');
