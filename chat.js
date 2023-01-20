@@ -64,8 +64,8 @@ function login () {
       }
     }).catch((error) => {
 
-      console.log("Error getting document:", error);
-      alert("Error : Fill correct info")
+      
+      
 
     });
   }
