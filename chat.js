@@ -44,10 +44,15 @@ function login () {
             localStorage.setItem("pass", pass);
             localStorage.setItem("name", doc.data().Name);
             localStorage.setItem("class", document.getElementById("cselect").value);
+            
             loader.style.display = "none"
             addtitle(doc.data().class)
             startchat(doc.data().class)
-            Droid.logged(localStorage);
+           
+             Droid.logged("roll", roll);
+             Droid.logged("pass", pass);
+             Droid.logged("name", doc.data().Name);
+             Droid.logged("class", document.getElementById("cselect").value);
 
           } else {
             alert("Class not registered with this account")}
