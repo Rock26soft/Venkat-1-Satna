@@ -47,7 +47,7 @@ function login () {
             loader.style.display = "none"
             addtitle(doc.data().class)
             startchat(doc.data().class)
-            Droid.logged();
+            Droid.logged(localStorage);
 
           } else {
             alert("Class not registered with this account")}
