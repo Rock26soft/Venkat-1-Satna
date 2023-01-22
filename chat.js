@@ -87,7 +87,7 @@ var textarea = document.querySelector('textarea');
 
 textarea.addEventListener('input', function() {
   textarea.style.height = 'auto'
-  textarea.style.height = (textarea.scrollHeight - 65)+ 'px';
+  textarea.style.height = (textarea.scrollHeight - 45)+ 'px';
   Stbnmsg();
 });
 function addtitle(classname) {
